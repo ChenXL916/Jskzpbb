@@ -10,9 +10,11 @@
   "scripts": {
     "dev": "concurrently -n API,WEB -c cyan,green \"pnpm --filter @jishi/api dev\" \"pnpm --filter @jishi/web dev\"",
     "build": "pnpm --filter @jishi/contracts build && pnpm --filter @jishi/api build && pnpm --filter @jishi/web build",
+    "build:sites": "pnpm --filter @jishi/sites-web build",
     "lint": "pnpm --filter @jishi/contracts build && pnpm --filter @jishi/api lint && pnpm --filter @jishi/web lint",
     "test": "pnpm --filter @jishi/api test && pnpm --filter @jishi/web test",
     "typecheck": "pnpm --filter @jishi/contracts build && pnpm --filter @jishi/api typecheck && pnpm --filter @jishi/web typecheck",
+    "test:gateway": "node --test scripts/makeup-gateway-service.test.mjs && pnpm --filter @jishi/sites-web test",
     "check": "pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
     "db:migrate": "pnpm --filter @jishi/api db:migrate"
   },

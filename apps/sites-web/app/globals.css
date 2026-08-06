@@ -1,0 +1,38 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+  background: #f5f2eb;
+  color: #17231f;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+.shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: radial-gradient(circle at 18% 15%, #e4ece6 0, transparent 34%), #f5f2eb;
+}
+.card {
+  width: min(560px, 100%);
+  padding: 36px;
+  border: 1px solid #d8d5cc;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 50px rgba(24, 42, 36, 0.08);
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #0c6b5e;
+  color: white;
+  font-size: 24px;
+}
+.kicker { margin: 24px 0 8px; color: #0c6b5e; font-size: 12px; font-weight: 700; letter-spacing: .14em; }
+h1 { margin: 0 0 12px; font-size: clamp(24px, 4vw, 32px); }
+p { line-height: 1.7; color: #5c6863; }
+a { display: inline-flex; margin-top: 12px; padding: 11px 18px; border-radius: 10px; background: #0c6b5e; color: white; text-decoration: none; }

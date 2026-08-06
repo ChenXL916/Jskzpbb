@@ -12,6 +12,21 @@ function resolveApiUrl(): string {
     return `${window.location.protocol}//${window.location.hostname}:3002/api`;
   }
 
+  // Public deployments use the Next.js same-origin gateway. This prevents a
+  // production browser from trying to call the deployer's localhost API when
+  // the original local build-time value is still present.
+  try {
+    const configured = new URL(configuredApiUrl, window.location.origin);
+    if (
+      configured.hostname === 'localhost' ||
+      configured.hostname === '127.0.0.1'
+    ) {
+      return '/api';
+    }
+  } catch {
+    return configuredApiUrl.startsWith('/') ? configuredApiUrl : '/api';
+  }
+
   return configuredApiUrl;
 }
 
