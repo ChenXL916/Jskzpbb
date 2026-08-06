@@ -1,0 +1,37 @@
+{
+  "name": "jishi-live-makeup-scheduling",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.32.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c cyan,green \"pnpm --filter @jishi/api dev\" \"pnpm --filter @jishi/web dev\"",
+    "build": "pnpm --filter @jishi/contracts build && pnpm --filter @jishi/api build && pnpm --filter @jishi/web build",
+    "build:sites": "pnpm --filter @jishi/sites-web build",
+    "lint": "pnpm --filter @jishi/contracts build && pnpm --filter @jishi/api lint && pnpm --filter @jishi/web lint",
+    "test": "pnpm --filter @jishi/api test && pnpm --filter @jishi/web test",
+    "typecheck": "pnpm --filter @jishi/contracts build && pnpm --filter @jishi/api typecheck && pnpm --filter @jishi/web typecheck",
+    "test:gateway": "node --test scripts/makeup-gateway-service.test.mjs && pnpm --filter @jishi/sites-web test",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run test && pnpm run build",
+    "db:migrate": "pnpm --filter @jishi/api db:migrate"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss@<=8.5.17": "8.5.24",
+      "sharp@<0.35.0": "0.35.3",
+      "brace-expansion@^1.0.0": "1.1.18",
+      "brace-expansion@^2.0.0": "2.1.4",
+      "uuid@<11.1.1": "11.1.1"
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

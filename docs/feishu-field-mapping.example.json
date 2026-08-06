@@ -1,0 +1,43 @@
+{
+  "description": "仅为配置结构示例。table_id 和 field_id 必须从当前 Base 元数据读取，禁止照抄示例值。",
+  "tables": [
+    {
+      "businessType": "STAFF_MONTHLY_SCHEDULE",
+      "syncDirection": "FEISHU_TO_LOCAL",
+      "tableId": "<real-table-id>",
+      "viewId": null,
+      "fields": {
+        "personName": "<field-id>",
+        "roleType": "<field-id>",
+        "employmentStatus": "<field-id>",
+        "month": "<field-id>",
+        "dateColumns": ["<1-day-field-id>", "<2-day-field-id>"]
+      }
+    },
+    {
+      "businessType": "LIVE_HOURLY_SCHEDULE",
+      "syncDirection": "FEISHU_TO_LOCAL",
+      "tableId": "<real-table-id>",
+      "fields": {
+        "liveRoom": "<field-id>",
+        "month": "<field-id>",
+        "timeSlot": "<field-id>",
+        "dateColumns": ["<1-day-field-id>", "<2-day-field-id>"]
+      }
+    },
+    {
+      "businessType": "MAKEUP_APPOINTMENT",
+      "syncDirection": "BIDIRECTIONAL",
+      "tableId": "<real-table-id>",
+      "fields": {
+        "externalOrderNo": "<field-id>",
+        "makeupSubject": "<field-id>",
+        "makeupArtist": "<field-id>",
+        "startAt": "<field-id>",
+        "endAt": "<field-id>",
+        "orderStatus": "<field-id>",
+        "remark": "<field-id>"
+      }
+    }
+  ]
+}
